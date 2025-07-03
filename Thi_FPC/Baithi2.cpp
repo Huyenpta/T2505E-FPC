@@ -1,24 +1,26 @@
 #include <stdio.h>
 
+int isPrime(int n) {
+    if (n < 2)
+        return 0;
+
+    for (int i = 2; i <= n/2; i++) {
+        if (n % i == 0)
+            return 0; 
+    }
+    return 1; 
+}
+
 int main() {
-    int n, isPrime = 1;  
+    int n;
 
     printf("Nhap mot so nguyen duong: ");
     scanf("%d", &n);
 
-    if (n < 2) {
-        isPrime = 0;  
+    if (isPrime(n)) {
+        printf("%d la so nguyen to.", n);
     } else {
-        for (int i = 2; i <= n / 2; i++) {
-            if (n % i == 0) {
-                isPrime = 0;  
-            }
-        }
+        printf("%d KHONG phai la so nguyen to.", n);
     }
 
-    if (isPrime) {
-        printf("%d la so nguyen to.\n", n);
-    } else {
-        printf("%d KHONG phai la so nguyen to.\n", n);
-    }
 }
